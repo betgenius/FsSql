@@ -55,8 +55,8 @@ let tvpTests =
                 let tableValuedParam =
                     Sql.ParameterType.Table { 
                         Sql.TableParameter.ParameterName = "@PersonIds"
-                        TypeName = "" // TODO no idea what this should be
-                        Value = personIds }
+                        TypeName = "dbo.IntegerList" // The name of the User Defined Table Type in SQL Server that matches the DataTable
+                        Value = personIds |> DataTable.ofRecords }
                 let otherParam = 
                     Sql.Parameter.make("@OtherParam", 1)
                 let people = 
